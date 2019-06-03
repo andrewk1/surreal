@@ -72,6 +72,7 @@ def make_gym(env_name, env_config):
 
 def make_robosuite(env_name, env_config):
     import robosuite
+    env_config.render = False
 
     env = robosuite.make(
         env_name,
@@ -79,8 +80,8 @@ def make_robosuite(env_name, env_config):
         ignore_done=True,
         use_camera_obs=env_config.pixel_input,
         has_offscreen_renderer=env_config.pixel_input,
-        camera_height=84,
-        camera_width=84,
+        camera_height=256,
+        camera_width=256,
         render_collision_mesh=False,
         render_visual_mesh=True,
         camera_name='agentview',
